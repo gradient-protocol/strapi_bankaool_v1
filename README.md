@@ -30,7 +30,7 @@
 ```bash
 # Clonar repositorio
 git clone https://[url-del-repositorio]
-cd strapi_banka
+cd strapi_bankaool_v1
 
 # Instalar dependencias
 npm install --production
