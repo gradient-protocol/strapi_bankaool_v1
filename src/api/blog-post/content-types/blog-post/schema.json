@@ -155,6 +155,13 @@
     },
     "content": {
       "type": "blocks"
+    },
+    "contents": {
+      "type": "customField",
+      "options": {
+        "preset": "defaultHtml"
+      },
+      "customField": "plugin::ckeditor5.CKEditor"
     }
   }
 }
