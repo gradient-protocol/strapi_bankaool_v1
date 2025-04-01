@@ -1,7 +1,7 @@
 # 🚀 Banco Digital Bankaool - Plataforma Strapi
 
-✨ **Bienvenidos al repositorio oficial de la API de contenidos de Bankaool** ✨
-
+✨ **Bienvenidos al repositorio oficial del CMS Strapi para Bankaool** ✨
+Versión actual: 1.0
 ---
 
 ## 🛠️ Configuración Inicial
@@ -17,10 +17,11 @@
 - `.env.example`: Plantilla de referencia con las variables necesarias
 - `.env`: Archivo real con valores sensibles (NUNCA se sube al repositorio)
 
-⚠️ **Importante:** 
-1. **Nunca** compartas el archivo `.env`
-2. Usa `.env.example` como guía para crear tu propio `.env`
-3. Las variables marcadas como 'REQUERIDO' son críticas para el funcionamiento
+### Plugins utilizados
+- ColorPicker
+- CKEditor5 lite
+- SEO
+- Roles & Permissions
 
 ---
 
