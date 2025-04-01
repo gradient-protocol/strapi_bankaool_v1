@@ -440,6 +440,11 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
     autor: Schema.Attribute.Relation<'manyToOne', 'api::autor.autor'> &
       Schema.Attribute.SetPluginOptions<{
@@ -458,15 +463,6 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           label: 'Categor\u00EDa';
         };
       }>;
-    contenido: Schema.Attribute.RichText &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        'content-manager': {
-          description: 'Este campo proporciona el cuerpo del art\u00EDculo de blog';
-          label: 'Contenido';
-        };
-      }>;
-    content: Schema.Attribute.Blocks;
     contents: Schema.Attribute.RichText &
       Schema.Attribute.CustomField<
         'plugin::ckeditor5.CKEditor',
@@ -483,6 +479,9 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: 'Este campo define si el art\u00EDculo blog debe mostrarse como art\u00EDculo destacado en la p\u00E1gina principal del blog';
           label: 'Art\u00EDculo destacado';
         };
+        i18n: {
+          localized: true;
+        };
       }> &
       Schema.Attribute.DefaultTo<false>;
     file: Schema.Attribute.Media<'files'> &
@@ -490,6 +489,9 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
         'content-manager': {
           description: 'Este campo proporciona el archivo descargable por el usuario';
           label: 'Archivo descargable';
+        };
+        i18n: {
+          localized: true;
         };
       }>;
     group: Schema.Attribute.Enumeration<
@@ -500,6 +502,9 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: "Este campo determina si el art\u00EDculo de blog debe mostrarse como 'M\u00E1s Reciente, M\u00E1s le\u00EDdo o Recomendado'";
           label: 'Mostrar En';
         };
+        i18n: {
+          localized: true;
+        };
       }>;
     hasPDF: Schema.Attribute.Boolean &
       Schema.Attribute.SetPluginOptions<{
@@ -507,14 +512,23 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: "Este campo determina si el art\u00EDculo de blog posee un descargable, de ser as\u00ED, el usuario ver\u00E1 el tag 'Descargable PDF' en el art\u00EDculo";
           label: 'El articulo tiene descargable?';
         };
+        i18n: {
+          localized: true;
+        };
       }> &
       Schema.Attribute.DefaultTo<false>;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::blog-post.blog-post'
-    > &
-      Schema.Attribute.Private;
+    >;
+    post: Schema.Attribute.Relation<'manyToMany', 'api::blog-post.blog-post'> &
+      Schema.Attribute.SetPluginOptions<{
+        'content-manager': {
+          description: 'Este campo determina que art\u00EDculos de blog deseas mostrar como relacionado al creado';
+          label: 'Art\u00EDculos relacionados';
+        };
+      }>;
     postCover: Schema.Attribute.Media<'images'> &
       Schema.Attribute.Required &
       Schema.Attribute.SetPluginOptions<{
@@ -522,15 +536,12 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: 'Este campo proporciona la imagen principal que se mostrar\u00E1 como portada del art\u00EDculo de blog';
           label: 'Imagen de portada';
         };
-      }>;
-    posts: Schema.Attribute.Relation<'manyToMany', 'api::blog-post.blog-post'> &
-      Schema.Attribute.SetPluginOptions<{
-        'content-manager': {
-          description: 'Este campo determina que art\u00EDculos de blog deseas mostrar como relacionado al creado';
-          label: 'Art\u00EDculos relacionados';
+        i18n: {
+          localized: true;
         };
       }>;
     publishedAt: Schema.Attribute.DateTime;
+    SEO: Schema.Attribute.Component<'shared.seo', false>;
     slug: Schema.Attribute.UID<'titulo'> & Schema.Attribute.Required;
     tema: Schema.Attribute.Relation<'manyToOne', 'api::tema.tema'> &
       Schema.Attribute.SetPluginOptions<{
@@ -546,6 +557,9 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: 'Este campo proporciona la duraci\u00F3n de lectura del art\u00EDculo de blog';
           label: 'Tiempo de lectura';
         };
+        i18n: {
+          localized: true;
+        };
       }>;
     titulo: Schema.Attribute.String &
       Schema.Attribute.Required &
@@ -554,6 +568,9 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           description: 'Este campo proporciona el t\u00EDtulo principal del art\u00EDculo de blog que se mostrar\u00E1 a los lectores';
           label: 'Titulo del art\u00EDculo de Blog';
           placeholder: 'T\u00EDtulo del art\u00EDculo';
+        };
+        i18n: {
+          localized: true;
         };
       }>;
     updatedAt: Schema.Attribute.DateTime;
@@ -575,13 +592,7 @@ export interface ApiCategoriaCategoria extends Struct.CollectionTypeSchema {
   };
   attributes: {
     color: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        'content-manager': {
-          description: 'Este campo determina el color de la categor\u00EDa';
-          label: 'Color de la categor\u00EDa';
-        };
-      }>;
+      Schema.Attribute.CustomField<'plugin::color-picker.color'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

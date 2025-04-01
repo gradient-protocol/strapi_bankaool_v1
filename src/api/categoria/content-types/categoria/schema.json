@@ -23,14 +23,9 @@
       }
     },
     "color": {
-      "type": "string",
-      "required": true,
-      "pluginOptions": {
-        "content-manager": {
-          "label": "Color de la categoría",
-          "description": "Este campo determina el color de la categoría"
-        }
-      }
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color"
     }
   }
 }
