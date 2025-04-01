@@ -30,7 +30,7 @@ Versión actual: 1.0
 ### 🔄 Flujo de Implementación
 ```bash
 # Clonar repositorio
-git clone https://[url-del-repositorio]
+git clone https://github.com/gradient-protocol/strapi_bankaool_v1.git
 cd strapi_bankaool_v1
 
 # Instalar dependencias
@@ -63,7 +63,7 @@ server {
 
 🔒 **Configuración SSL Recomendada:**
 ```bash
-certbot --nginx -d api.bankaool.com
+certbot --nginx -d cms.bankaool.com
 ```
 
 ---
