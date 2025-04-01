@@ -1,0 +1,60 @@
+{
+  "kind": "collectionType",
+  "collectionName": "autores",
+  "info": {
+    "singularName": "autor",
+    "pluralName": "autores",
+    "displayName": "Autores",
+    "description": "Colección de autores para los Blog Posts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Nombre del autor",
+          "description": "Este campo proporciona el nombre del autor de cada Blog Post",
+          "placeholder": "John Doe"
+        }
+      }
+    },
+    "foto": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Foto del autor",
+          "description": "Este campo proporciona la foto del autor"
+        }
+      }
+    },
+    "Rol": {
+      "type": "enumeration",
+      "enum": [
+        "Colaborador",
+        "Escritor",
+        "Prensa",
+        "Editora",
+        "Editor",
+        "Escritora",
+        "Colaboradora",
+        "Finance Geek",
+        "CEO CuidadosaMENTE",
+        "Redactor",
+        "Redactora",
+        "Copywriter",
+        "Analista SEO",
+        "Lider de relación con usuarios",
+        "UX Writer"
+      ]
+    }
+  }
+}

@@ -1,0 +1,160 @@
+{
+  "kind": "collectionType",
+  "collectionName": "blog_posts",
+  "info": {
+    "singularName": "blog-post",
+    "pluralName": "blog-posts",
+    "displayName": "Blog Posts",
+    "description": "Colección de artículos del blog"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Titulo del artículo de Blog",
+          "description": "Este campo proporciona el título principal del artículo de blog que se mostrará a los lectores",
+          "placeholder": "Título del artículo"
+        }
+      }
+    },
+    "autor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::autor.autor",
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Autor del artículo de Blog",
+          "description": "Este campo proporciona la información del autor del artículo de blog que se mostrará a los lectores"
+        }
+      }
+    },
+    "postCover": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Imagen de portada",
+          "description": "Este campo proporciona la imagen principal que se mostrará como portada del artículo de blog"
+        }
+      }
+    },
+    "tiempo_lect": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Tiempo de lectura",
+          "description": "Este campo proporciona la duración de lectura del artículo de blog"
+        }
+      }
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "titulo",
+      "required": true
+    },
+    "contenido": {
+      "type": "richtext",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Contenido",
+          "description": "Este campo proporciona el cuerpo del artículo de blog"
+        }
+      }
+    },
+    "categoria": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::categoria.categoria",
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Categoría",
+          "description": "Este campo determina la categoría a la cual pertenece el artículo de blog"
+        }
+      }
+    },
+    "tema": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tema.tema",
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Tema",
+          "description": "Este campo determina el tema a la cual el artículo de blog pertenece"
+        }
+      }
+    },
+    "posts": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::blog-post.blog-post",
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Artículos relacionados",
+          "description": "Este campo determina que artículos de blog deseas mostrar como relacionado al creado"
+        }
+      }
+    },
+    "group": {
+      "type": "enumeration",
+      "enum": [
+        "Más Reciente",
+        "Más leído",
+        "Recomendado"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Mostrar En",
+          "description": "Este campo determina si el artículo de blog debe mostrarse como 'Más Reciente, Más leído o Recomendado'"
+        }
+      }
+    },
+    "hasPDF": {
+      "type": "boolean",
+      "default": false,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "El articulo tiene descargable?",
+          "description": "Este campo determina si el artículo de blog posee un descargable, de ser así, el usuario verá el tag 'Descargable PDF' en el artículo"
+        }
+      }
+    },
+    "file": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "files"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Archivo descargable",
+          "description": "Este campo proporciona el archivo descargable por el usuario"
+        }
+      }
+    },
+    "featuredPost": {
+      "type": "boolean",
+      "default": false,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Artículo destacado",
+          "description": "Este campo define si el artículo blog debe mostrarse como artículo destacado en la página principal del blog"
+        }
+      }
+    },
+    "content": {
+      "type": "blocks"
+    }
+  }
+}

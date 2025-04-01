@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prensas",
+  "info": {
+    "singularName": "prensa",
+    "pluralName": "prensas",
+    "displayName": "Prensa",
+    "description": "Colección de artículos de prensa"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "titulo": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Titulo del artículo de prensa",
+          "description": "Este campo proporciona el titulo del artículo de prensa",
+          "placeholder": "Artículo"
+        }
+      }
+    },
+    "imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ],
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Portada del artículo de prensa",
+          "description": "Este campo proporciona la portada de los artículos de prensa"
+        }
+      }
+    },
+    "url": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "URL del artículo de prensa",
+          "description": "Este campo proporciona la URL que dirigirá al artículo de prensa"
+        }
+      }
+    }
+  }
+}

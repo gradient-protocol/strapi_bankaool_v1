@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "temas",
+  "info": {
+    "singularName": "tema",
+    "pluralName": "temas",
+    "displayName": "Temas",
+    "description": "Colección de temas para los Blog Posts"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "unique": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Titulo del tema",
+          "description": "Este campo proporciona el nombre del tema al que pertenece un artículo de blog",
+          "placeholder": "Nombre del tema"
+        }
+      }
+    }
+  }
+}

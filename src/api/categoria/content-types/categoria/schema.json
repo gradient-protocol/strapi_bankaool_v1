@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categorias",
+  "info": {
+    "singularName": "categoria",
+    "pluralName": "categorias",
+    "displayName": "Categorias",
+    "description": "Colección de categorías para los Blog Posts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Nombre de la Categoria",
+          "description": "Este campo proporciona el nombre de la categoría a la cual pertenece un Blog Post",
+          "placeholder": "Categoría"
+        }
+      }
+    },
+    "color": {
+      "type": "string",
+      "required": true,
+      "pluginOptions": {
+        "content-manager": {
+          "label": "Color de la categoría",
+          "description": "Este campo determina el color de la categoría"
+        }
+      }
+    }
+  }
+}
