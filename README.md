@@ -10,8 +10,8 @@
 - Node.js v18.x
 - PostgreSQL 12+ 
 - Nginx 1.18+
-- 2 GB RAM mínimo
-- 2 vCPU
+- 8 GB RAM mínimo (16 GB RAM Recomendado)
+- 4 vCPU
 
 🔧 **Archivos de configuración:**
 - `.env.example`: Plantilla de referencia con las variables necesarias
@@ -47,7 +47,7 @@ npm run start
 ```nginx
 server {
     listen 80;
-    server_name api.bankaool.com;
+    server_name cms.bankaool.com;
 
     location / {
         proxy_pass http://localhost:1337;
